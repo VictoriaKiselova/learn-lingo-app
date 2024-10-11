@@ -1,0 +1,20 @@
+.navContainer {
+  width: 138px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20%;
+}
+.navHomeLink {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  color: #121417;
+  text-decoration: none;
+  cursor: pointer;
+}
+.navHomeLink:hover {
+  color: #f4c550;
+  text-decoration: underline;
+}
