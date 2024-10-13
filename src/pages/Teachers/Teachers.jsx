@@ -1,3 +1,9 @@
+import SignOut from "../../components/SignOut/SignOut";
+
 export default function Teachers() {
-  return <div></div>;
+  return (
+    <div>
+      <SignOut />
+    </div>
+  );
 }

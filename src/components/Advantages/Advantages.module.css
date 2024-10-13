@@ -1,0 +1,38 @@
+.advantagesContainer {
+  border: 1.5px dashed #f4c550;
+  padding: 40px 8.5%;
+  border-radius: 30px;
+  background-color: #fff;
+}
+.advantagesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 6.9%;
+  list-style-type: none;
+  justify-content: center;
+  align-content: center;
+}
+.advantagesItem {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 16px;
+}
+.quantity {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: #121417;
+  align-self: center;
+  white-space: nowrap;
+}
+.advantages {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: #121417b2;
+  align-self: center;
+}

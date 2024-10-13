@@ -1,0 +1,21 @@
+.singOut {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+  color: #121417;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.icon {
+  fill: #f4c550;
+}
+.login:hover {
+  color: #f4c550;
+  text-decoration: underline;
+}

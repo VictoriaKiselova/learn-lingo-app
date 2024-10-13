@@ -1,0 +1,95 @@
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+}
+.iconClose {
+  stroke: #121417;
+  transition: stroke 0.3s ease, transform 0.3s ease;
+}
+.iconClose:hover {
+  stroke: #ffdc86;
+  cursor: pointer;
+}
+.title {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 48px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: #121417;
+  margin-bottom: 1.4%;
+}
+.loginText {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  color: #121417;
+  margin-bottom: 2.8%;
+}
+.iconEye {
+  fill: #121417;
+  cursor: pointer;
+}
+.form {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 18px;
+}
+.input {
+  width: 100%;
+  max-width: 100%;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid #e1e0e0;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+.input:focus {
+  background-color: transparent;
+  outline: none;
+}
+.buttonRegistr {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+  color: #121417;
+  padding: 16px;
+  border-radius: 12px;
+  background-color: #f4c550;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.buttonRegistr:hover {
+  background-color: #ffdc86;
+}
+.passwordBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.error {
+  display: block;
+  font-size: 14px;
+  color: rgb(110, 108, 108);
+}
+.passwordBut {
+  position: absolute;
+  right: 16px;
+  background-color: transparent;
+  border: none;
+}
+.iconEye {
+  fill: #fff;
+  stroke: black;
+}
+.iconEyeClose {
+  fill: #fff;
+  stroke: black;
+}

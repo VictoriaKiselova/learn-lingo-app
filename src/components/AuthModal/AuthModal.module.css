@@ -1,0 +1,45 @@
+.authContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.icon {
+  fill: #f4c550;
+}
+.login {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+  color: #121417;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.login:hover {
+  color: #f4c550;
+  text-decoration: underline;
+}
+.registration {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+  color: #ffffff;
+  width: 166px;
+  padding: 14px 39px;
+  border-radius: 12px;
+  background-color: #121417;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+.registration:hover {
+  color: #f4c550;
+  background-color: #37260e;
+}
