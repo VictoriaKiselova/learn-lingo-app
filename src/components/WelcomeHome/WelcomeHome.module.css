@@ -1,6 +1,7 @@
-.containerWelcomeHome {  
+.containerWelcomeHome {
+  height: auto;
   padding: 14% 8.8%;
-  background: #F8F8F8;
+  background: #f8f8f8;
   border-radius: 30px;
 }
 .title {
@@ -10,7 +11,7 @@
   letter-spacing: -0.02em;
   text-align: left;
   color: #121417;
-  margin-bottom: 4.4%;
+  margin-bottom: 32px;
 }
 .language {
   display: inline-block;
@@ -19,13 +20,11 @@
   font-weight: 400;
   line-height: 56px;
   letter-spacing: -0.02em;
-  /* text-align: left; */
   border-radius: 8px;
   opacity: 0px;
   padding: 0 5px;
   color: #121417;
   background: #fbe9ba;
-  /* margin-left: 7px; */
 }
 .text {
   font-family: Roboto;
@@ -35,7 +34,7 @@
   letter-spacing: -0.02em;
   text-align: left;
   color: #121417;
-  margin-bottom: 8.8%;
+  margin-bottom: 64px;
 }
 .button {
   width: 267px;
@@ -46,6 +45,29 @@
   font-weight: 700;
   line-height: 28px;
   color: #121417;
+  background-color: #f4c550;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+.buttonViewTeachers {
+  width: min-content;
+  height: 60px;
+  padding: 16px 6.1%;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #121417;
   background: #f4c550;
   border: none;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #ffdc86;
+}
+.buttonViewTeachers:hover {
+  background-color: #ffdc86;
 }

@@ -1,12 +1,12 @@
 .container {
   display: grid;
+  grid-template-columns: minmax(320px, 720px) minmax(320px, 568px);
   justify-content: center;
-  align-items: center;
-  gap: 1.6%;
+  gap: 1.66%;
+  background-color: #fff;
 }
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .container {
-    align-items: stretch;
-    grid-template-columns: 55% 45%;
+    grid-template-columns: 1fr;
   }
 }

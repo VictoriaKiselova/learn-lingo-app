@@ -1,7 +1,13 @@
-import Login from "../LogIn/LogIn";
+import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { selectorIsAuthorized } from "../../redux/auth/selectors";
+import { openLoginModal } from "../../redux/auth/slice";
 import style from "./WelcomeHome.module.css";
 
 export default function WelcomeHome() {
+  const isAuthorized = useSelector(selectorIsAuthorized);
+  const dispatch = useDispatch();
+
   return (
     <div className={style.containerWelcomeHome}>
       <h1 className={style.title}>
@@ -13,9 +19,18 @@ export default function WelcomeHome() {
         Elevate your language proficiency to new heights by connecting with
         highly qualified and experienced tutors.
       </p>
-      <button type="button" className={style.button} onClick={() => <Login />}>
-        Get started
-      </button>
+      {!isAuthorized ? (
+        <button
+          type="button"
+          className={style.button}
+          onClick={() => dispatch(openLoginModal(true))}>
+          Get started
+        </button>
+      ) : (
+        <Link className={style.buttonViewTeachers} to="/teachers">
+          View the list of teachers
+        </Link>
+      )}
     </div>
   );
 }

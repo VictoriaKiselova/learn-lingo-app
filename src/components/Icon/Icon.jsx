@@ -1,5 +1,4 @@
 import sprite from "../../Images/symbol-defs.svg";
-// import css from "./Icon.module.css";
 
 const Icon = ({ id, width = "28px", height = "28px", className }) => {
   return (

@@ -29,13 +29,25 @@ To install and run the project, follow these steps:
    ```
 
 2. Navigate to the project directory:
-   cd repo-name
+
+   ```bash
+    cd repo-name
+
+   ```
 
 3. Install the dependencies:
+
+    ```bash
    npm install
 
+    ```
+
 4. Start the application:
+
+    ```bash
    npm start
+
+    ```
 
 ## Usage
 

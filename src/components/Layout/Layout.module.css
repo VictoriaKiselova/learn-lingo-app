@@ -2,4 +2,5 @@
   display: grid;
   grid-template-rows: auto auto auto;
   gap: 30px;
+  padding: 0 0 32px 0;
 }

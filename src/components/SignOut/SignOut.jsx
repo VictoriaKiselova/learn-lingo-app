@@ -1,9 +1,9 @@
 import { getAuth, signOut } from "firebase/auth";
-import Icon from "../Icon/Icon";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { selectorIsAuthorized } from "../../redux/auth/selectors";
 import { loginUser } from "../../redux/auth/slice";
+import Icon from "../Icon/Icon";
 import style from "./SignOut.module.css";
 
 export default function SignOut() {

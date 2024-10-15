@@ -10,19 +10,27 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import getTeachersList from "./teachers/slice";
 import storage from "redux-persist/lib/storage";
 
-const persistConfigContacts = {
+const persistConfigAuth = {
   key: "auth",
   storage,
   whitelist: ["name", "isAuthorized"],
 };
 
-const pUserReducer = persistReducer(persistConfigContacts, changeUser);
+const persistConfigTeachers = {
+  key: "teachers",
+  storage,
+};
+
+const pUserReducer = persistReducer(persistConfigAuth, changeUser);
+const pTeachersReducer = persistReducer(persistConfigTeachers, getTeachersList);
 
 export const store = configureStore({
   reducer: {
     auth: pUserReducer,
+    teachers: pTeachersReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

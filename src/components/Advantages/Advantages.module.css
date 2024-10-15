@@ -7,12 +7,14 @@
 .advantagesList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 6.9%;
+  column-gap: 100px;
+  row-gap: 10px;
   list-style-type: none;
   justify-content: center;
   align-content: center;
 }
 .advantagesItem {
+  width: max-content;
   display: grid;
   grid-template-columns: repeat(2, auto);
   gap: 16px;

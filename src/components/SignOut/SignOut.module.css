@@ -14,8 +14,9 @@
 }
 .icon {
   fill: #f4c550;
+  transition: fill 0.3s ease;
 }
-.login:hover {
+.singOut:hover {
   color: #f4c550;
   text-decoration: underline;
 }

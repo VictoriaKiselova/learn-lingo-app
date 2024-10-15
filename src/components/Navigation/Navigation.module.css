@@ -13,6 +13,7 @@
   color: #121417;
   text-decoration: none;
   cursor: pointer;
+  transition: background-color 0.5s ease;
 }
 .navHomeLink:hover {
   color: #f4c550;

@@ -1,0 +1,33 @@
+.teacherContainer {
+  padding: 6.6% 8.8%;
+  background: #f8f8f8;
+  position: relative;
+}
+.logoContainer {
+  width: 100%;
+  position: relative;
+  top: -20px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #fff;
+  padding: 8px 4px;
+  border-radius: 15px;
+}
+.buttonMore {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: left;
+  padding: 16px 48px;
+  border-radius: 12px;
+  color: #121417;
+  background-color: #f4c550;
+  transition: background-color 0.3s ease;
+  border: none;
+  margin: 0 auto;
+}
+.buttonMore:hover {
+  background-color: #ffdc86;
+}
