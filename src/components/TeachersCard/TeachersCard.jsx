@@ -1,40 +1,28 @@
 import { nanoid } from "nanoid";
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import TeachersCardHeader from "../TeacherCardHeader/TeacherCardHeader";
+import { useEffect, useState } from "react";
 import { database } from "../../firebase";
 import { ref, onValue } from "firebase/database";
-import { selectorTeachersList } from "../../redux/teachers/selectors";
-import { getTeachersList } from "../../redux/teachers/slice";
+import TeachersCardHeader from "../TeacherCardHeader/TeacherCardHeader";
+import Loader from "../Loader/Loader";
 import style from "./TeachersCard.module.css";
 
 export default function TeachersCard() {
-  const teacherList = useSelector(selectorTeachersList);
-  const dispatch = useDispatch();
+  const [isData, setIsData] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const postsRef = ref(database);
-      onValue(postsRef, snapshot => {
-        const data = snapshot.val();
+    const dbRef = ref(database);
+    const unsubscribe = onValue(dbRef, snapshot => {
+      const data = snapshot.val();
+      setIsData(data || []);
+    });
 
-        if (data) {
-          const postsArray = Object.entries(data).map(([key, value]) => ({
-            id: key,
-            ...value,
-          }));
-          dispatch(getTeachersList(postsArray));
-        }
-      });
-    };
-
-    fetchData();
-  }, [dispatch]);
+    return () => unsubscribe();
+  }, []);
 
   return (
     <ul className={style.teacherCardContainer}>
-      {teacherList.length > 0 ? (
-        teacherList.map(elem => (
+      {isData.length > 0 ? (
+        isData.map(elem => (
           <li key={nanoid()} className={style.teacherCardItem}>
             <div className={style.avatarBox}>
               <img
@@ -64,7 +52,6 @@ export default function TeachersCard() {
                   <li className={style.teacherInfoItem}>
                     Conditions:{" "}
                     <span className={style.teacherInfoValue}>
-                      {" "}
                       {elem.conditions.map(item => (
                         <p key={nanoid()}>{item}</p>
                       ))}
@@ -88,7 +75,9 @@ export default function TeachersCard() {
           </li>
         ))
       ) : (
-        <p>No teachers available</p>
+        <p>
+          <Loader />
+        </p>
       )}
     </ul>
   );
