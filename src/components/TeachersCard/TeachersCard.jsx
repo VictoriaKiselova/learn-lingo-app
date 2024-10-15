@@ -13,73 +13,83 @@ export default function TeachersCard() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const postsRef = ref(database);
-    const unsubscribe = onValue(postsRef, snapshot => {
-      const data = snapshot.val();
+    const fetchData = async () => {
+      const postsRef = ref(database);
+      onValue(postsRef, snapshot => {
+        const data = snapshot.val();
 
-      if (data) {
-        const postsArray = Object.entries(data).map(([key, value]) => ({
-          id: key,
-          ...value,
-        }));
-        dispatch(getTeachersList(postsArray));
-      }
-    });
+        if (data) {
+          const postsArray = Object.entries(data).map(([key, value]) => ({
+            id: key,
+            ...value,
+          }));
+          dispatch(getTeachersList(postsArray));
+        }
+      });
+    };
 
-    return () => unsubscribe();
+    fetchData();
   }, [dispatch]);
 
   return (
     <ul className={style.teacherCardContainer}>
-      {teacherList.map(elem => (
-        <li key={nanoid()} className={style.teacherCardItem}>
-          <div className={style.avatarBox}>
-            <img src={elem.avatar_url} alt="avatar" className={style.avatar} />
-          </div>
-          <div>
-            <TeachersCardHeader teacherItem={elem} />
-            <div>
-              <ul className={style.teacherInfo}>
-                <li className={style.teacherInfoItem}>
-                  Speaks:{" "}
-                  <span className={style.teacherInfoValue}>
-                    {elem.languages.map(lang => (
-                      <p key={nanoid()}>{lang}</p>
-                    ))}
-                  </span>
-                </li>
-                <li className={style.teacherInfoItem}>
-                  Lesson Info:{" "}
-                  <span className={style.teacherInfoValue}>
-                    {elem.lesson_info}
-                  </span>
-                </li>
-                <li className={style.teacherInfoItem}>
-                  Conditions:{" "}
-                  <span className={style.teacherInfoValue}>
-                    {" "}
-                    {elem.conditions.map(item => (
-                      <p key={nanoid()}>{item}</p>
-                    ))}
-                  </span>
-                </li>
-              </ul>
-              <button type="button" className={style.button}>
-                Read more
-              </button>
+      {teacherList.length > 0 ? (
+        teacherList.map(elem => (
+          <li key={nanoid()} className={style.teacherCardItem}>
+            <div className={style.avatarBox}>
+              <img
+                src={elem.avatar_url}
+                alt="avatar"
+                className={style.avatar}
+              />
             </div>
             <div>
-              <ul className={style.levelContainer}>
-                {elem.levels.map(level => (
-                  <li key={nanoid()} className={style.levelItem}>
-                    {level}
+              <TeachersCardHeader teacherItem={elem} />
+              <div>
+                <ul className={style.teacherInfo}>
+                  <li className={style.teacherInfoItem}>
+                    Speaks:{" "}
+                    <span className={style.teacherInfoValue}>
+                      {elem.languages.map(lang => (
+                        <p key={nanoid()}>{lang}</p>
+                      ))}
+                    </span>
                   </li>
-                ))}
-              </ul>
+                  <li className={style.teacherInfoItem}>
+                    Lesson Info:{" "}
+                    <span className={style.teacherInfoValue}>
+                      {elem.lesson_info}
+                    </span>
+                  </li>
+                  <li className={style.teacherInfoItem}>
+                    Conditions:{" "}
+                    <span className={style.teacherInfoValue}>
+                      {" "}
+                      {elem.conditions.map(item => (
+                        <p key={nanoid()}>{item}</p>
+                      ))}
+                    </span>
+                  </li>
+                </ul>
+                <button type="button" className={style.button}>
+                  Read more
+                </button>
+              </div>
+              <div>
+                <ul className={style.levelContainer}>
+                  {elem.levels.map(level => (
+                    <li key={nanoid()} className={style.levelItem}>
+                      {level}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
-        </li>
-      ))}
+          </li>
+        ))
+      ) : (
+        <p>No teachers available</p>
+      )}
     </ul>
   );
 }
