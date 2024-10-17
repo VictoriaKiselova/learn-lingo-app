@@ -1,7 +1,29 @@
+import { useSelector, useDispatch } from "react-redux";
+import { openLoginModal } from "../../redux/auth/slice";
+import { selectorIsAuthorized } from "../../redux/auth/selectors";
+import { addFavorites, removeFavorites } from "../../redux/favorites/slice";
+import { selectorFavorites } from "../../redux/favorites/selectors";
 import Icon from "../Icon/Icon";
 import style from "./TeachersCardHeader.module.css";
 
 export default function TeachersCardHeader({ teacherItem }) {
+  const dispatch = useDispatch();
+  const isAuthorized = useSelector(selectorIsAuthorized);
+  const isFavorites = useSelector(selectorFavorites);
+  const isFavorite = isFavorites.includes(teacherItem.id);
+
+  const handleFavoriteClick = () => {
+    if (isAuthorized) {
+      if (isFavorite) {
+        dispatch(removeFavorites(teacherItem.id));
+      } else {
+        dispatch(addFavorites(teacherItem.id));
+      }
+    } else {
+      dispatch(openLoginModal(true));
+    }
+  };
+
   return (
     <ul className={style.container}>
       <li key={teacherItem.id} className={style.cardHeaderContainer}>
@@ -42,12 +64,17 @@ export default function TeachersCardHeader({ teacherItem }) {
             </span>
           </li>
         </ul>
-        <Icon
-          id={"icon-heart"}
-          width="26px"
-          height="26px"
-          className={style.iconHeart}
-        />
+        <button
+          type="button"
+          className={style.buttonFavourite}
+          onClick={handleFavoriteClick}>
+          <Icon
+            id={"icon-heart"}
+            width="26px"
+            height="26px"
+            className={!isFavorite ? style.iconHeart : style.iconHeartFavourite}
+          />
+        </button>
       </li>
     </ul>
   );

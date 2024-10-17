@@ -11,7 +11,7 @@
   background-color: #fff;
   border-radius: 24px;
   display: grid;
-  column-gap: 48px;
+  row-gap: 10px;
   grid-template-rows: auto auto;
 }
 .avatarBox {
@@ -27,6 +27,9 @@
   width: 96px;
   height: 96px;
   border-radius: 100px;
+}
+.infoTeacherContainer {
+  margin-bottom: 32px;
 }
 .teacherInfo {
   list-style-type: none;
@@ -68,11 +71,17 @@
   padding: 0;
   margin-bottom: 32px;
 }
+.button:hover {
+  color: #f4c550;
+}
 .levelContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  display: flex;
   gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
   list-style-type: none;
+  margin-bottom: 32px;
 }
 .levelItem {
   font-size: 14px;
@@ -93,10 +102,30 @@
   background-color: #f4c550;
   border: none;
 }
+.buttonTrial {
+  width: min-content;
+  height: 60px;
+  padding: 16px 3.33%;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #121417;
+  background: #f4c550;
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+.buttonTrial:hover {
+  background-color: #ffdc86;
+}
 
 @media screen and (min-width: 768px) {
   .teacherCardItem {
-    grid-template-columns: auto auto;
-    row-gap: 24px;
+    grid-template-columns: 120px auto;
+    column-gap: 48px;
+    row-gap: 0;
   }
 }

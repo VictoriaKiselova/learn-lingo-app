@@ -5,7 +5,7 @@
   display: grid;
   justify-content: space-between;
   gap: 16px;
-  align-content: start;
+  align-items: start;
 }
 .lang {
   font-size: 16px;
@@ -55,9 +55,19 @@
   stroke: #121417;
   transition: fill 0.3s ease;
 }
+.iconHeartFavourite {
+  fill: #ffc531;
+  stroke: #ffc531;
+  transition: fill 0.3s ease;
+}
 .iconHeart:hover {
   fill: #f4c550;
   stroke: #f4c550;
+}
+.buttonFavourite {
+  border: none;
+  background-color: transparent;
+  display: inline-flex;
 }
 @media screen and (min-width: 768px) {
   .cardHeaderContainer {
