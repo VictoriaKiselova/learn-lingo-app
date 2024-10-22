@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectorIsLoginModalOpen } from "../../redux/auth/selectors";
-import { openLoginModal } from "../../redux/auth/slice";
 import Modal from "react-modal";
 import LogIn from "../LogIn/LogIn";
 import Registration from "../Registration/Registration";
@@ -35,7 +34,7 @@ export default function AuthModal() {
   const isLoginModalOpen = useSelector(selectorIsLoginModalOpen);
   const dispatch = useDispatch();
 
-  function openLoginModal2() {
+  function openLoginModal() {
     dispatch(openLoginModal(true));
   }
 
@@ -53,7 +52,7 @@ export default function AuthModal() {
 
   return (
     <div className={style.authContainer}>
-      <button onClick={openLoginModal2} className={style.login}>
+      <button onClick={openLoginModal} className={style.login}>
         <Icon
           id={"icon-log-in-01"}
           width="20px"

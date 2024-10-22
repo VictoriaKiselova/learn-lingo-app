@@ -1,0 +1,230 @@
+.modal {
+  padding: 20px;
+  background-color: #fff;
+  width: 320px;
+  box-sizing: border-box;
+}
+.buttonClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background-color: transparent;
+}
+.iconClose {
+  stroke: #121417;
+}
+.bookTrialWrapper {
+  margin-bottom: 20px;
+}
+.titleForm {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 38px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: #121417;
+  margin-bottom: 12px;
+}
+.textForm {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  color: #121417cc;
+  letter-spacing: 0.01em;
+  margin-bottom: 20px;
+}
+.teacherWrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.avatar {
+  display: block;
+  width: 44px;
+  height: 44px;
+  border-radius: 100px;
+}
+.yourTeacher {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: left;
+  color: #8a8a89;
+  margin-bottom: 4px;
+}
+.nameTeacher {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  color: #121417;
+}
+.causeTitle {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  color: #121417;
+  margin-bottom: 12px;
+}
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: start;
+  margin-bottom: 20px;
+}
+.inputCause {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #121417;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+input[type="radio"] {
+  appearance: none;
+  border: 1px solid #ccc;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: relative;
+  margin: 0;
+}
+input[type="radio"]:checked {
+  background-color: #ffffff;
+  border: 1px solid #f4c550;
+}
+
+input[type="radio"]:checked::after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: #f4c550;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.inputTextWrapper {
+  margin-bottom: 20px;
+}
+.inputText:not(:last-child) {
+  margin-bottom: 8px;
+}
+.inputText {
+  width: 260px;
+  padding: 10px;
+  background-color: #fff;
+  color: #121417;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  border: 1px solid #1214171a;
+  border-radius: 12px;
+}
+.inputText::placeholder {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  color: #777777;
+}
+.inputText:focus {
+  outline: none;
+  background-color: #ffffff;
+  border: 1px solid #f4c550;
+}
+.buttonBook {
+  display: block;
+  width: 280px;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #121417;
+  border-radius: 12px;
+  background-color: #f4c550;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: background-color 0.3s ease;
+}
+.buttonBook:hover {
+  background-color: #ffdc86;
+}
+.error {
+  margin-top: -8px;
+  font-size: 14px;
+  color: #e32020;
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    padding: 32px 64px;
+    width: 600px;
+  }
+  .iconClose {
+    width: 22px;
+    height: 22px;
+  }
+  .iconClose:hover {
+    stroke: #ffdc86;
+  }
+  .titleForm {
+    font-size: 40px;
+    line-height: 44px;
+    margin-bottom: 18px;
+  }
+  .causeTitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+    line-height: 32px;
+  }
+  .inputWrapper {
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .buttonBook {
+    width: 472px;
+  }
+  input[type="radio"] {
+    width: 24px;
+    height: 24px;
+  }
+  input[type="radio"]:checked::after {
+    width: 10px;
+    height: 10px;
+  }
+  .inputTextWrapper {
+    margin-bottom: 30px;
+  }
+  .inputText:not(:last-child) {
+    margin-bottom: 18px;
+  }
+  .inputText {
+    width: 439px;
+    padding: 14px 16px;
+  }
+  .inputText::placeholder {
+    font-size: 16px;
+  }
+  .buttonBook {
+    width: 290px;
+    padding: 16px;
+  }
+  .error {
+    margin-top: -18px;
+  }
+}

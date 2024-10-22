@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { nanoid } from "nanoid";
 import { auth } from "../../firebase";
@@ -9,7 +9,6 @@ import {
   createUserWithEmailAndPassword,
   browserSessionPersistence,
 } from "firebase/auth";
-import { selectorIsAuthorized } from "../../redux/auth/selectors";
 import { registrUser } from "../../redux/auth/slice";
 import * as Yup from "yup";
 import Icon from "../Icon/Icon";
@@ -29,7 +28,6 @@ export default function Registration({ closeRegistrationModal }) {
   const emailId = nanoid();
   const passwordId = nanoid();
   const navigate = useNavigate();
-  const isAuthorized = useSelector(selectorIsAuthorized);
   const dispatch = useDispatch();
 
   const toggleVisiblePassword = () => {

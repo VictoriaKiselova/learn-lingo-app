@@ -4,6 +4,7 @@ const favoritesSlice = createSlice({
   name: "favorites",
   initialState: {
     favoritesItems: [],
+    modalBooking: false,
   },
   reducers: {
     saveTeachers: (state, action) => {
@@ -18,9 +19,20 @@ const favoritesSlice = createSlice({
         favoriteId => favoriteId !== action.payload
       );
     },
+    openModalBooking: (state, action) => {
+      state.modalBooking = true;
+    },
+    closeModalBooking: (state, action) => {
+      state.modalBooking = false;
+    },
   },
 });
 
-export const { saveTeachers, addFavorites, removeFavorites } =
-  favoritesSlice.actions;
+export const {
+  saveTeachers,
+  addFavorites,
+  removeFavorites,
+  openModalBooking,
+  closeModalBooking,
+} = favoritesSlice.actions;
 export default favoritesSlice.reducer;

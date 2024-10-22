@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { database } from "../../firebase";
 import { ref, onValue } from "firebase/database";
+import { openModalBooking } from "../../redux/favorites/slice";
 import Loader from "../Loader/Loader";
 import TeachersCardHeader from "../TeacherCardHeader/TeacherCardHeader";
 import style from "./TeachersCard.module.css";
 
-export default function TeachersCard() {
+export default function TeachersCard({ setImageTeacher, setTeacherName }) {
   const [isData, setIsData] = useState([]);
   const [openItemId, setOpenItemId] = useState(null);
   const dispatch = useDispatch();
@@ -22,8 +23,14 @@ export default function TeachersCard() {
     return () => unsubscribe();
   }, [dispatch]);
 
-  const handleItemClick = id => {
+  const handleItemClick = (id, avatar, name, surname) => {
     setOpenItemId(prevId => (prevId === id ? null : id));
+    setImageTeacher(avatar);
+    setTeacherName({ name, surname });
+  };
+
+  const handleIOpenModalBooking = () => {
+    dispatch(openModalBooking());
   };
 
   return (
@@ -69,7 +76,14 @@ export default function TeachersCard() {
                 <Link
                   to={`description/${elem.id}`}
                   className={style.button}
-                  onClick={() => handleItemClick(elem.id)}>
+                  onClick={() =>
+                    handleItemClick(
+                      elem.id,
+                      elem.avatar_url,
+                      elem.name,
+                      elem.surname
+                    )
+                  }>
                   {openItemId === elem.id ? "Collapse" : "Read more"}
                 </Link>
                 {openItemId === elem.id && <Outlet />}
@@ -87,8 +101,7 @@ export default function TeachersCard() {
                 <button
                   type="button"
                   className={style.buttonTrial}
-                  // onClick={() => dispatch(openLoginModal(true))}
-                >
+                  onClick={handleIOpenModalBooking}>
                   Book trial lesson
                 </button>
               )}
