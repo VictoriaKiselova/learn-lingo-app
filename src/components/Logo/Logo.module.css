@@ -2,7 +2,7 @@
   display: flex;
   gap: 8px;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   text-decoration: none;
   cursor: pointer;
 }
@@ -13,4 +13,9 @@
   letter-spacing: -0.02em;
   text-align: left;
   color: #121417;
+}
+@media screen and (min-width: 768px) {
+  .homeLink {
+    width: 269px;
+  }
 }

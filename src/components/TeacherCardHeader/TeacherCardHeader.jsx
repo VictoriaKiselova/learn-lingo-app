@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
-import { openLoginModal } from "../../redux/auth/slice";
 import { selectorIsAuthorized } from "../../redux/auth/selectors";
 import { addFavorites, removeFavorites } from "../../redux/favorites/slice";
 import { selectorFavorites } from "../../redux/favorites/selectors";
+import { Store } from "react-notifications-component";
 import Icon from "../Icon/Icon";
 import style from "./TeachersCardHeader.module.css";
 
@@ -10,18 +10,35 @@ export default function TeachersCardHeader({ teacherItem }) {
   const dispatch = useDispatch();
   const isAuthorized = useSelector(selectorIsAuthorized);
   const isFavorites = useSelector(selectorFavorites);
-  const isFavorite = isFavorites.includes(teacherItem.id);
+  const isFavorite = isFavorites.some(
+    favorite => favorite.id === teacherItem.id
+  );
 
   const handleFavoriteClick = () => {
-    if (isAuthorized) {
-      if (isFavorite) {
-        dispatch(removeFavorites(teacherItem.id));
-      } else {
-        dispatch(addFavorites(teacherItem.id));
-      }
+    if (isFavorite) {
+      dispatch(removeFavorites(teacherItem));
     } else {
-      dispatch(openLoginModal(true));
+      dispatch(addFavorites(teacherItem));
     }
+  };
+
+  const showCustomNotification = () => {
+    Store.addNotification({
+      content: (
+        <div className={style.customNotification}>
+          Sign in to add to favorites
+        </div>
+      ),
+      type: "default",
+      insert: "top",
+      container: "bottom-center",
+      animationIn: ["animate__animated", "animate__fadeIn"],
+      animationOut: ["animate__animated", "animate__fadeOut"],
+      dismiss: {
+        duration: 2500,
+        showIcon: true,
+      },
+    });
   };
 
   return (
@@ -64,10 +81,17 @@ export default function TeachersCardHeader({ teacherItem }) {
             </span>
           </li>
         </ul>
+
         <button
           type="button"
           className={style.buttonFavourite}
-          onClick={handleFavoriteClick}>
+          onClick={() => {
+            if (!isAuthorized) {
+              showCustomNotification();
+            } else {
+              handleFavoriteClick();
+            }
+          }}>
           <Icon
             id={"icon-heart"}
             width="26px"

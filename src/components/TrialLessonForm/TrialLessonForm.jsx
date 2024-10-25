@@ -18,6 +18,7 @@ const customStyles = {
     border: "none",
     position: "relative",
     backgroundColor: "#fff",
+    outline: "none",
   },
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.3)",
@@ -43,9 +44,17 @@ export default function TrialLessonForm({ imageTeacher, teacherName }) {
     },
   });
 
+  const onSubmit = data => {
+    reset();
+    handleICloseModalBooking();
+  };
+
   return (
     <Modal
       isOpen={modalBookingForm}
+      onRequestClose={handleICloseModalBooking}
+      shouldCloseOnOverlayClick={true}
+      shouldCloseOnEsc={true}
       style={customStyles}
       className={style.modal}>
       <button onClick={handleICloseModalBooking} className={style.buttonClose}>
@@ -74,12 +83,7 @@ export default function TrialLessonForm({ imageTeacher, teacherName }) {
         </div>
       </div>
 
-      <form
-        onSubmit={handleSubmit(data => {
-          //   console.log(data);
-          reset();
-        })}
-        className={style.form}>
+      <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
         <p className={style.causeTitle}>
           What is your main reason for learning English?
         </p>

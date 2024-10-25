@@ -70,6 +70,7 @@
   cursor: pointer;
   padding: 0;
   margin-bottom: 32px;
+  outline: none;
 }
 .button:hover {
   color: #f4c550;
@@ -117,6 +118,7 @@
   white-space: nowrap;
   transition: background-color 0.3s ease;
   cursor: pointer;
+  outline: none;
 }
 .buttonTrial:hover {
   background-color: #ffdc86;

@@ -7,16 +7,17 @@ const favoritesSlice = createSlice({
     modalBooking: false,
   },
   reducers: {
-    saveTeachers: (state, action) => {
-      state.allTeachers.push(action.payload);
-    },
-
     addFavorites: (state, action) => {
-      state.favoritesItems.push(action.payload);
+      const existingIndex = state.favoritesItems.findIndex(
+        favorite => favorite.id === action.payload.id
+      );
+      if (existingIndex === -1) {
+        state.favoritesItems.push(action.payload);
+      }
     },
     removeFavorites: (state, action) => {
       state.favoritesItems = state.favoritesItems.filter(
-        favoriteId => favoriteId !== action.payload
+        favorite => favorite.id !== action.payload.id
       );
     },
     openModalBooking: (state, action) => {

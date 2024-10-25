@@ -22,6 +22,7 @@ const contactSchema = Yup.object().shape({
   email: Yup.string().email().required("is required!"),
   password: Yup.string().min(6, "Min 6 chars!").required("is required!"),
 });
+
 export default function Registration({ closeRegistrationModal }) {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
   const nameId = nanoid();
@@ -45,7 +46,6 @@ export default function Registration({ closeRegistrationModal }) {
       if (userCredential.user) {
         dispatch(
           registrUser({
-            isAuthorized: true,
             name: values.name,
             email: values.email,
           })

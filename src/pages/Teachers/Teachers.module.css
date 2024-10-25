@@ -3,17 +3,6 @@
   background: #f8f8f8;
   position: relative;
 }
-.logoContainer {
-  width: 100%;
-  position: relative;
-  top: -20px;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  background-color: #fff;
-  padding: 8px 4px;
-  border-radius: 15px;
-}
 .buttonMore {
   display: block;
   font-size: 18px;

@@ -1,14 +1,12 @@
-import Home from "../../pages/Home/Home";
+import { Suspense } from "react";
 import Header from "../Header/Header";
-import Advantages from "../Advantages/Advantages";
 import style from "./Layout.module.css";
 
-export default function Layout() {
+export default function Layout({ children }) {
   return (
     <div className={style.layoutContainer}>
       <Header />
-      <Home />
-      <Advantages />
+      <Suspense fallback={null}>{children}</Suspense>
     </div>
   );
 }

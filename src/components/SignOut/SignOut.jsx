@@ -1,25 +1,19 @@
 import { getAuth, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { selectorIsAuthorized } from "../../redux/auth/selectors";
-import { loginUser } from "../../redux/auth/slice";
+import { useDispatch } from "react-redux";
+import { logOutUser } from "../../redux/auth/slice";
 import Icon from "../Icon/Icon";
 import style from "./SignOut.module.css";
 
 export default function SignOut() {
   const navigate = useNavigate();
-  const isAuthorized = useSelector(selectorIsAuthorized);
   const dispatch = useDispatch();
 
   function signLogout() {
     const auth = getAuth();
     signOut(auth)
       .then(() => {
-        dispatch(
-          loginUser({
-            isAuthorized: false,
-          })
-        );
+        dispatch(logOutUser());
         navigate("/");
       })
       .catch(error => {

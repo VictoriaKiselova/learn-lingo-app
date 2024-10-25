@@ -16,13 +16,13 @@
 .reviewsItem {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 30px;
   margin-bottom: 32px;
 }
 .review {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
 }
 .reviewerName {
   font-size: 16px;

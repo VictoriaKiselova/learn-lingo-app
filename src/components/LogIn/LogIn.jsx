@@ -34,11 +34,7 @@ export default function LogIn({ closeLoginModal }) {
     setPersistence(auth, browserSessionPersistence);
     signInWithEmailAndPassword(auth, values.email, values.password)
       .then(userCredential => {
-        dispatch(
-          loginUser({
-            isAuthorized: true,
-          })
-        );
+        dispatch(loginUser());
         actions.resetForm();
         navigate("/teachers");
         closeLoginModal();

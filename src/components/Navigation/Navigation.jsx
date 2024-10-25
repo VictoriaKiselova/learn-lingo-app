@@ -1,15 +1,38 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectorIsAuthorized } from "../../redux/auth/selectors";
 import style from "./Navigation.module.css";
 
 export default function Navigation() {
+  const isAuthorized = useSelector(selectorIsAuthorized);
+
   return (
     <nav className={style.navContainer}>
-      <Link className={style.navHomeLink} to="/">
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? `${style.navHomeLink} ${style.active}` : style.navHomeLink
+        }
+        to="/">
         Home
-      </Link>
-      <Link className={style.navHomeLink} to="/teachers">
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? `${style.navHomeLink} ${style.active}` : style.navHomeLink
+        }
+        to="/teachers">
         Teachers
-      </Link>
+      </NavLink>
+      {isAuthorized && (
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? `${style.navHomeLink} ${style.active}`
+              : style.navHomeLink
+          }
+          to="/favorites">
+          Favorites
+        </NavLink>
+      )}
     </nav>
   );
 }

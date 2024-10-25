@@ -19,3 +19,16 @@
   color: #f4c550;
   text-decoration: underline;
 }
+.navHomeLink {
+  text-decoration: none;
+  color: black;
+}
+
+.navHomeLink:hover {
+  text-decoration: underline;
+}
+
+.active {
+  text-decoration: underline;
+  font-weight: bold;
+}

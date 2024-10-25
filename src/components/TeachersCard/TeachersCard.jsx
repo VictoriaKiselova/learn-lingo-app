@@ -1,9 +1,10 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { database } from "../../firebase";
 import { ref, onValue } from "firebase/database";
 import { openModalBooking } from "../../redux/favorites/slice";
+import { selectorFavorites } from "../../redux/favorites/selectors";
 import Loader from "../Loader/Loader";
 import TeachersCardHeader from "../TeacherCardHeader/TeacherCardHeader";
 import style from "./TeachersCard.module.css";
@@ -11,13 +12,20 @@ import style from "./TeachersCard.module.css";
 export default function TeachersCard({ setImageTeacher, setTeacherName }) {
   const [isData, setIsData] = useState([]);
   const [openItemId, setOpenItemId] = useState(null);
+  const favorites = useSelector(selectorFavorites);
+  const location = useLocation();
   const dispatch = useDispatch();
 
   useEffect(() => {
     const dbRef = ref(database);
     const unsubscribe = onValue(dbRef, snapshot => {
       const data = snapshot.val();
-      setIsData(data);
+
+      if (location.pathname === "/favorites") {
+        setIsData(favorites);
+      } else {
+        setIsData(data);
+      }
     });
 
     return () => unsubscribe();

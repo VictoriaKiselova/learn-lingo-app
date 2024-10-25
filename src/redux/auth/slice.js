@@ -10,18 +10,22 @@ const authSlice = createSlice({
   },
   reducers: {
     registrUser: (state, action) => {
-      state.isAuthorized = action.payload.isAuthorized;
+      state.isAuthorized = true;
       state.name = action.payload.name;
       state.email = action.payload.email;
     },
     loginUser: (state, action) => {
-      state.isAuthorized = action.payload.isAuthorized;
+      state.isAuthorized = true;
     },
     openLoginModal: (state, action) => {
       state.isLoginModalOpen = action.payload;
     },
+    logOutUser: (state, action) => {
+      state.isAuthorized = false;
+    },
   },
 });
 
-export const { registrUser, loginUser, openLoginModal } = authSlice.actions;
+export const { registrUser, loginUser, logOutUser, openLoginModal } =
+  authSlice.actions;
 export default authSlice.reducer;
