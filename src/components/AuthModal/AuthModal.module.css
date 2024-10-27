@@ -2,14 +2,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 8px;
 }
 .icon {
   fill: #f4c550;
 }
 .login {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 20px;
   text-align: left;
   color: #121417;
@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
 }
 .login:hover {
   color: #f4c550;
@@ -27,12 +27,11 @@
 }
 .registration {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 20px;
   text-align: left;
   color: #ffffff;
-  width: 166px;
-  padding: 14px 39px;
+  padding: 8px;
   border-radius: 12px;
   background-color: #121417;
   cursor: pointer;
@@ -42,4 +41,28 @@
 .registration:hover {
   color: #f4c550;
   background-color: #37260e;
+}
+@media screen and (min-width: 768px) {
+  .authContainer {
+    gap: 16px;
+  }
+  .login {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: left;
+    color: #121417;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .registration {
+    font-weight: 700;
+    width: 166px;
+    padding: 14px 39px;
+  }
 }

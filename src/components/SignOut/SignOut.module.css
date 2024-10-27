@@ -11,6 +11,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  order: 3;
 }
 .icon {
   fill: #f4c550;
@@ -19,4 +20,9 @@
 .singOut:hover {
   color: #f4c550;
   text-decoration: underline;
+}
+@media screen and (min-width: 768px) {
+  .singOut {
+    order: 0;
+  }
 }

@@ -20,7 +20,12 @@ export default function App() {
             <Route path="/teachers" element={<Teachers />}>
               <Route path="description/:id" element={<Description />} />
             </Route>
-            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/favorites" element={<Favorites />}>
+              <Route
+                path="/favorites/description/:id"
+                element={<Description />}
+              />
+            </Route>
           </Routes>
         </AnimatePresence>
       </Layout>

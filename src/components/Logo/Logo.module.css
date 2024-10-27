@@ -5,17 +5,30 @@
   justify-content: left;
   text-decoration: none;
   cursor: pointer;
+  order: 2;
 }
 .logo {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: -0.02em;
   text-align: left;
   color: #121417;
 }
+.icon {
+  display: none;
+}
 @media screen and (min-width: 768px) {
   .homeLink {
     width: 269px;
+    order: 0;
+  }
+  .logo {
+    font-size: 20px;
+  }
+  .icon {
+    display: flex;
+    width: 28px;
+    height: 28px;
   }
 }

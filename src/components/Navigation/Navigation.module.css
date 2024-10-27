@@ -1,16 +1,20 @@
 .navContainer {
   width: 138px;
+  padding: 20px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
-  gap: 20%;
+  gap: 12px;
+  background-color: rgba(0, 0, 0, 0.35);
+  position: relative;
 }
 .navHomeLink {
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
   text-align: left;
-  color: #121417;
+  color: #f6f6f6;
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.5s ease;
@@ -19,16 +23,36 @@
   color: #f4c550;
   text-decoration: underline;
 }
-.navHomeLink {
-  text-decoration: none;
-  color: black;
-}
-
-.navHomeLink:hover {
-  text-decoration: underline;
-}
-
 .active {
   text-decoration: underline;
   font-weight: bold;
+}
+.buttonClose {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.iconClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 18px;
+  width: 18px;
+  color: #f6f6f6;
+}
+.buttonClose:hover .iconClose {
+  color: #ffdc86;
+}
+@media screen and (min-width: 768px) {
+  .navContainer {
+    flex-direction: row;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: transparent;
+  }
+  .navHomeLink {
+    color: #121417;
+  }
 }
