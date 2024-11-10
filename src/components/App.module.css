@@ -5,3 +5,14 @@
   padding: 0 4%;
   background-color: #fff;
 }
+@media screen and (min-width: 768px) {
+  .containerApp {
+    width: 768px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .containerApp {
+    width: 1440px;
+  }
+}
