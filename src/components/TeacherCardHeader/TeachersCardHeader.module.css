@@ -69,15 +69,6 @@
   background-color: transparent;
   display: inline-flex;
 }
-.customNotification {
-  background-color: #ffc531 !important;
-  color: #000;
-  padding: 18px 18px 18px 18px;
-  font-size: 18px;
-  font-weight: 500;
-  width: 325px;
-  text-align: center;
-}
 
 @media screen and (min-width: 768px) {
   .cardHeaderContainer {

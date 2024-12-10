@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { selectorModalBooking } from "../../redux/favorites/selectors";
 import { closeModalBooking } from "../../redux/favorites/slice";
 import { useDispatch, useSelector } from "react-redux";
+import { showCustomNotification } from "../Notification/Notification";
 import Icon from "../Icon/Icon";
 import style from "./TrialLessonForm.module.css";
 
@@ -31,6 +32,9 @@ export default function TrialLessonForm({ imageTeacher, teacherName }) {
 
   function handleICloseModalBooking() {
     dispatch(closeModalBooking());
+    showCustomNotification({
+      textNotification: "Your trial lesson has been successfully booked",
+    });
   }
 
   const {

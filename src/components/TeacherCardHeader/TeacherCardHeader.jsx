@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectorIsAuthorized } from "../../redux/auth/selectors";
 import { addFavorites, removeFavorites } from "../../redux/favorites/slice";
 import { selectorFavorites } from "../../redux/favorites/selectors";
-import { Store } from "react-notifications-component";
+import { showCustomNotification } from "../Notification/Notification";
 import Icon from "../Icon/Icon";
 import style from "./TeachersCardHeader.module.css";
 
@@ -20,25 +20,6 @@ export default function TeachersCardHeader({ teacherItem }) {
     } else {
       dispatch(addFavorites(teacherItem));
     }
-  };
-
-  const showCustomNotification = () => {
-    Store.addNotification({
-      content: (
-        <div className={style.customNotification}>
-          Sign in to add to favorites
-        </div>
-      ),
-      type: "default",
-      insert: "top",
-      container: "bottom-center",
-      animationIn: ["animate__animated", "animate__fadeIn"],
-      animationOut: ["animate__animated", "animate__fadeOut"],
-      dismiss: {
-        duration: 2500,
-        showIcon: true,
-      },
-    });
   };
 
   return (
@@ -87,9 +68,20 @@ export default function TeachersCardHeader({ teacherItem }) {
           className={style.buttonFavourite}
           onClick={() => {
             if (!isAuthorized) {
-              showCustomNotification();
+              showCustomNotification({
+                textNotification: "Sign in to add to favorites",
+              });
             } else {
               handleFavoriteClick();
+              {
+                !isFavorite
+                  ? showCustomNotification({
+                      textNotification: "Added to favorites",
+                    })
+                  : showCustomNotification({
+                      textNotification: "Removed from favorites",
+                    });
+              }
             }
           }}>
           <Icon

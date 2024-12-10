@@ -18,7 +18,7 @@ const customStyles = {
     maxWidth: "39%",
     minWidth: "280px",
     transform: "translate(-50%, -50%)",
-    borderRadius: "30px",
+    borderRadius: "12px",
     border: "none",
     padding: "4.5%",
     position: "relative",

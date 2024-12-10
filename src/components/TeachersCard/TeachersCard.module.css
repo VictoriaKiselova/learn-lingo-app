@@ -135,7 +135,7 @@
     padding: 24px;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1440px) {
   .teacherCardItem {
     width: 1184px;
   }

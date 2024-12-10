@@ -79,6 +79,6 @@
 @media screen and (min-width: 1440px) {
   .containerWelcomeHome {
     width: 720px;
-    height: 100%;
+    padding: 142px 108px 108px 64px;
   }
 }
